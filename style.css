@@ -1,0 +1,501 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header con Búsqueda */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.2rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo i { font-size: 2.2rem; }
+.logo h1 { font-size: 1.5rem; font-weight: 700; }
+
+.search-container {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+    margin: 0 2rem;
+}
+
+#buscador {
+    width: 100%;
+    padding: 12px 50px 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#buscador:focus {
+    outline: none;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+    background: white;
+    transform: scale(1.02);
+}
+
+.search-icon {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, rgba(102,126,234,0.95), rgba(118,75,162,0.95));
+    color: white;
+    text-align: center;
+    padding: 160px 0 100px;
+    margin-top: 80px;
+}
+
+.hero h2 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Productos */
+.productos {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+#tituloProductos {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.contador-productos {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    font-weight: 500;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.producto-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.producto-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.producto-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.producto-card.especial {
+    border: 3px solid #ffd700;
+    background: linear-gradient(135deg, #fffdf2 0%, white 100%);
+}
+
+.producto-card.especial::before {
+    background: linear-gradient(90deg, #ffd700, #ffed4a);
+}
+
+.imagen-producto {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 1.5rem;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #f0f2ff, #e8e8ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen-producto img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #333;
+    font-weight: 700;
+}
+
+.precio {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #667eea;
+    margin: 1rem 0 1.5rem;
+}
+
+.producto-card ul {
+    list-style: none;
+    margin: 1.5rem 0;
+}
+
+.producto-card li {
+    padding: 0.6rem 0;
+    color: #666;
+    font-weight: 500;
+}
+
+.btn-comprar {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-comprar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102,126,234,0.4);
+}
+
+.especial-btn {
+    background: linear-gradient(135deg, #ffd700, #ffed4a) !important;
+    color: #333 !important;
+    font-size: 1.2rem !important;
+}
+
+/* Combo Personalizable */
+.seleccion-combo {
+    margin: 1.5rem 0;
+}
+
+.seleccion-combo h4 {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.checkboxes-container {
+    max-height: 220px;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f8f9ff;
+    border-radius: 15px;
+    border: 2px solid #e8ecff;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.checkbox-item:hover {
+    background: #e8f0ff;
+    border-color: #667eea;
+    transform: translateX(5px);
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #667eea;
+    cursor: pointer;
+}
+
+.checkbox-item label {
+    margin: 0;
+    cursor: pointer;
+    font-weight: 500;
+    flex: 1;
+}
+
+.checkbox-item .precio-item {
+    margin-left: auto;
+    font-weight: 700;
+    color: #667eea;
+    font-size: 1.1rem;
+}
+
+.resumen-combo {
+    background: linear-gradient(135deg, #f0f8ff, #e8f0ff);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 2px solid #e0e8ff;
+    margin-bottom: 1rem;
+}
+
+.resumen-combo > div {
+    margin-bottom: 0.8rem;
+}
+
+.descuento-tag {
+    background: #ffd700;
+    color: #333;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.total-final {
+    font-size: 1.3rem;
+    color: #28a745;
+    padding-top: 0.8rem;
+    border-top: 2px solid #e0e8ff;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+}
+
+.modal-contenido {
+    background: white;
+    margin: 8% auto;
+    padding: 2.5rem;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 480px;
+    position: relative;
+    animation: modalSlide 0.4s ease;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+}
+
+@keyframes modalSlide {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.cerrar {
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    font-size: 2.2rem;
+    cursor: pointer;
+    color: #999;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.cerrar:hover {
+    background: #f0f0f0;
+    color: #667eea;
+}
+
+.precio-seleccionado {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 18px;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.input-group {
+    margin-bottom: 1.8rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1.2rem;
+    border: 2px solid #e8e8e8;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+}
+
+.btn-enviar {
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 1.3rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-enviar:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37,211,102,0.4);
+}
+
+.btn-comprar:disabled {
+    background: #ccc !important;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+footer a {
+    color: #4ecdc4;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    color: #667eea;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .search-container {
+        margin: 0;
+        max-width: 100%;
+        order: 3;
+    }
+    
+    .hero {
+        padding: 140px 0 80px;
+    }
+    
+    .grid-productos {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .modal-contenido {
+        margin: 15% auto;
+        width: 95%;
+        padding: 2rem;
+    }
+    
+    .checkboxes-container {
+        max-height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 0 15px; }
+    
+    #tituloProductos { font-size: 2.2rem; }
+    
+    .producto-card { padding: 2rem 1.5rem; }
+}

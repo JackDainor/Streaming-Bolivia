@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming Bolivia - Netflix, HBO, Disney+</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header con Búsqueda -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-play-circle"></i>
+                <h1>Streaming Bolivia</h1>
+            </div>
+            <div class="search-container">
+                <input type="text" id="buscador" placeholder="🔍 Buscar Netflix, Disney, HBO...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h2>¡Streaming Premium al Mejor Precio!</h2>
+            <p>Netflix, HBO Max, Disney+ y Combos Personalizados para Bolivia</p>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section class="productos">
+        <div class="container">
+            <h2 id="tituloProductos">Nuestros Planes</h2>
+            <div class="contador-productos">
+                Mostrando <span id="contador">6</span> de 6 productos
+            </div>
+            
+            <div class="grid-productos" id="gridProductos">
+                <!-- 1. COMBO PERSONALIZABLE (PRIMERO) -->
+                <div class="producto-card especial combo-personalizable" data-tags="combo personalizar">
+                    <div class="imagen-producto">
+                        <img src="https://img.icons8.com/fluency/96/null/combo-chart.png" alt="Combo Personalizable" loading="lazy">
+                    </div>
+                    <h3>🎯 Personalizar Mi Combo</h3>
+                    <div class="precio-combo" id="precioComboFinal">Bs. <span id="precioCombo">0</span> <span>/mes</span></div>
+                    
+                    <div class="seleccion-combo">
+                        <h4>Selecciona 2-3 servicios:</h4>
+                        <div class="checkboxes-container" id="checkboxesCombo">
+                            <!-- Checkboxes se generan con JS -->
+                        </div>
+                        <div class="resumen-combo">
+                            <div class="total-sin-descuento">
+                                Subtotal: <strong id="subtotalCombo">Bs. 0</strong>
+                            </div>
+                            <div class="descuento">
+                                <span class="descuento-tag">💰 -5% OFF</span>
+                                <strong id="descuentoCombo">Bs. 0</strong>
+                            </div>
+                            <div class="total-final">
+                                Total: <strong id="totalComboFinal">Bs. 0</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-comprar especial-btn" id="btnComboPersonalizado" disabled>
+                        ¡Crear Combo (Selecciona 2-3)!
+                    </button>
+                </div>
+
+                <!-- 2. NETFLIX -->
+                <div class="producto-card" data-tags="netflix premium 4k">
+                    <div class="imagen-producto">
+                        <img src="https://www.dropbox.com/scl/fi/8n3xv0dpf0pkzanr1qq7b/Netflix.jpg?rlkey=dxesyzt0l53frwiwbycml3w68&st=nb2xkwao&dl=1" alt="Netflix" loading="lazy">
+                    </div>
+                    <h3>Netflix Premium</h3>
+                    <div class="precio">Bs. 35 <span>/mes</span></div>
+                    <ul>
+                        <li>✅ 4K • 1 pantalla</li>
+                        <li>✅ Sin anuncios</li>
+                        <li>✅ Descargas ilimitadas</li>
+                    </ul>
+                    <button class="btn-comprar" onclick="abrirFormulario('Netflix Premium 4K', 35)">
+                        <i class="fab fa-whatsapp"></i> Comprar Ahora
+                    </button>
+                </div>
+
+                <!-- 3. DISNEY Standar-->
+                <div class="producto-card" data-tags="disney marvel starwars">
+                    <div class="imagen-producto">
+                        <img src="https://www.dropbox.com/scl/fi/vvz5xltdefldyidu3akba/Disney.webp?rlkey=g8xnh48ipq1d1c6b83upfvjg9&st=cljaqdkd&dl=1" alt="Disney+" loading="lazy">
+                    </div>
+                    <h3>Disney Standar</h3>
+                    <div class="precio">Bs. 17 <span>/mes</span></div>
+                    <ul>
+                        <li>✅ 4K Videos</li>
+                        <li>✅ 1 pantalla</li>
+                        <li>✅ Disney Standar </li>
+                    </ul>
+                    <button class="btn-comprar" onclick="abrirFormulario('Disney Standar', 17)">
+                        <i class="fab fa-whatsapp"></i> Comprar Ahora
+                    </button>
+                </div>
+                
+               <!-- 3. DISNEY PREMIUM-->
+                <div class="producto-card" data-tags="disney marvel starwars">
+                    <div class="imagen-producto">
+                        <img src="https://www.dropbox.com/scl/fi/vvz5xltdefldyidu3akba/Disney.webp?rlkey=g8xnh48ipq1d1c6b83upfvjg9&st=cljaqdkd&dl=1" alt="Disney+" loading="lazy">
+                    </div>
+                    <h3>Disney Premium</h3>
+                    <div class="precio">Bs. 33 <span>/mes</span></div>
+                    <ul>
+                        <li>✅ 7 ESPN</li>
+                        <li>✅ 1 pantalla</li>
+                        <li>✅ Disney Premium </li>
+                    </ul>
+                    <button class="btn-comprar" onclick="abrirFormulario('Disney Standar', 33)">
+                        <i class="fab fa-whatsapp"></i> Comprar Ahora
+                    </button>
+                </div>
+                
+               <!-- 3. Crunchyroll -->
+               <div class="producto-card" data-tags="disney marvel starwars">
+                   <div class="imagen-producto">
+                       <img src="https://www.dropbox.com/scl/fi/z7h7u0w0k63oqgmteckxv/untitled-design-30.png?rlkey=wg99fqyc53cwenloa97j1egvd&st=0yvn7p98&dl=1" alt="Disney+" loading="lazy">
+                   </div>
+                   <h3>Crunchyroll</h3>
+                   <div class="precio">Bs. 13 <span>/mes</span></div>
+                   <ul>
+                       <li>✅ 1 pantalla</li>
+                       <li>✅ Sin anuncios </li>
+                       
+                   </ul>
+                   <button class="btn-comprar" onclick="abrirFormulario('Crunchyroll', 13)">
+                       <i class="fab fa-whatsapp"></i> Comprar Ahora
+                   </button>
+               </div>
+               
+               <!-- 3. PornHub -->
+               <div class="producto-card" data-tags="disney marvel starwars">
+                   <div class="imagen-producto">
+                       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Disney%2B_logo.svg/120px-Disney%2B_logo.svg.png" alt="pornhub+" loading="lazy">
+                   </div>
+                   <h3>PornHub</h3>
+                   <div class="precio">Bs. 10 <span>/mes</span></div>
+                   <ul>
+                       <li>✅ 1 pantalla</li>
+                       <li>✅ Sin anuncios </li>
+                       
+                   </ul>
+                   <button class="btn-comprar" onclick="abrirFormulario('PornHub', 10)">
+                       <i class="fab fa-whatsapp"></i> Comprar Ahora
+                   </button>
+               </div>
+
+                <!-- 5. HBO PLATINO -->
+                <div class="producto-card" data-tags="prime amazon video">
+                    <div class="imagen-producto">
+                        <img src="https://www.dropbox.com/scl/fi/t249hr6uiyk6smfxntz5i/690582.jpeg?rlkey=fzg0q9bjta0nslzi48ygilmaj&st=qmzbzqqt&dl=1" alt="Prime Video" loading="lazy">
+                    </div>
+                    <h3>HBO MAX PLATINO</h3>
+                    <div class="precio">Bs. 19 <span>/mes</span></div>
+                    <ul>
+                        <li>✅ HD • Descargas</li>
+                        <li>✅ Descargas ilimitadas</li>
+                        <li>✅ 1 pantalla</li>
+                    </ul>
+                    <button class="btn-comprar" onclick="abrirFormulario('HBO MAX PLATINO', 19)">
+                        <i class="fab fa-whatsapp"></i> Comprar Ahora
+                    </button>
+                </div>
+          
+                <!-- 5. HBO Standar -->
+                <div class="producto-card" data-tags="prime amazon video">
+                    <div class="imagen-producto">
+                        <img src="https://www.dropbox.com/scl/fi/t249hr6uiyk6smfxntz5i/690582.jpeg?rlkey=fzg0q9bjta0nslzi48ygilmaj&st=qmzbzqqt&dl=1" alt="Prime Video" loading="lazy">
+                    </div>
+                    <h3>HBO MAX Standar </h3>
+                    <div class="precio">Bs. 14 <span>/mes</span></div>
+                    <ul>
+                        <li>✅ HD • Descargas</li>
+                        <li>✅ Descargas ilimitadas</li>
+                        <li>✅ 1 pantalla</li>
+                    </ul>
+                    <button class="btn-comprar" onclick="abrirFormulario('HBO MAX Standar', 14)">
+                        <i class="fab fa-whatsapp"></i> Comprar Ahora
+                    </button>
+                </div>
+
+                <!-- 5. PRIME VIDEO -->
+                <div class="producto-card" data-tags="prime amazon video">
+                    <div class="imagen-producto">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Amazon_Prime_Video_logo.svg/120px-Amazon_Prime_Video_logo.svg.png" alt="Prime Video" loading="lazy">
+                    </div>
+                    <h3>Prime Video HD</h3>
+                    <div class="precio">Bs. 17 <span>/mes</span></div>
+                    <ul>
+                        <li>✅ HD • Descargas</li>
+                        <li>✅ Prime Music incluido</li>
+                       
+                    </ul>
+                    <button class="btn-comprar" onclick="abrirFormulario('Prime Video HD', 17)">
+                        <i class="fab fa-whatsapp"></i> Comprar Ahora
+                    </button>
+                </div>
+
+                <!-- 6. YOUTUBE PREMIUM -->
+                <div class="producto-card" data-tags="youtube premium musica">
+                    <div class="imagen-producto">
+                        <img src="https://www.dropbox.com/scl/fi/k6ywr4auxjhcsj5b838l5/images.png?rlkey=tydzb8ngl48404xh2xsl2nyed&st=2g8hatn6&dl=1" alt="YouTube Premium" loading="lazy">
+                    </div>
+                    <h3>YouTube Premium</h3>
+                    <div class="precio">Bs. 20 <span>/mes</span></div>
+                    <ul>
+                        <li>✅ Sin anuncios YouTube</li>
+                        <li>✅ YouTube Music Premium</li>
+                        <li>✅ Descargas offline</li>
+                    </ul>
+                    <button class="btn-comprar" onclick="abrirFormulario('YouTube Premium', 20)">
+                        <i class="fab fa-whatsapp"></i> Comprar Ahora
+                    </button>
+                </div>
+                
+
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Producto Individual -->
+    <div class="modal" id="modalIndividual">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModalIndividual()">&times;</span>
+            <h3 id="tituloServicio"></h3>
+            <div class="precio-seleccionado" id="precioSeleccionado"></div>
+            <form id="formIndividual">
+                <div class="input-group">
+                    <label><i class="fas fa-user"></i> Nombre Completo</label>
+                    <input type="text" id="nombreIndividual" required>
+                </div>
+                <div class="input-group">
+                    <label><i class="fab fa-whatsapp"></i> WhatsApp</label>
+                    <input type="tel" id="whatsappIndividual" placeholder="75761732" required>
+                </div>
+                <button type="submit" class="btn-enviar">
+                    <i class="fab fa-whatsapp"></i> Enviar a WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Streaming Bolivia | <a href="https://wa.me/59175761732">+591 75761732</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
